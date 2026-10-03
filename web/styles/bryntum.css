@@ -1,0 +1,284 @@
+/*
+ * Bryntum Gantt, themed from Paceline's tokens. Bryntum 7 themes are CSS
+ * variables, so the Svalbard theme is kept and its inputs are re-pointed: the
+ * neutral ramp, the primary colour and the colour scheme follow data-theme.
+ */
+:root:not(.b-nothing) {
+  --b-primary: var(--accent);
+  --b-secondary: var(--late);
+  --b-widget-color-scheme: light;
+}
+
+:root[data-theme='dark']:not(.b-nothing) {
+  --b-widget-color-scheme: dark;
+  --b-mix: #14171c;
+  --b-opposite: #fff;
+  --b-neutral-100: #14171c;
+  --b-neutral-99: #161a1f;
+  --b-neutral-98: #181c22;
+  --b-neutral-97: #1a1e25;
+  --b-neutral-96: #1c2128;
+  --b-neutral-95: #1e232b;
+  --b-neutral-94: #20252d;
+  --b-neutral-93: #222830;
+  --b-neutral-92: #242a33;
+  --b-neutral-91: #262c36;
+  --b-neutral-90: #282f39;
+  --b-neutral-85: #323a46;
+  --b-neutral-80: #3c4553;
+  --b-neutral-75: #475160;
+  --b-neutral-70: #535d6d;
+  --b-neutral-65: #5f6a7a;
+  --b-neutral-60: #6c7787;
+  --b-neutral-55: #798494;
+  --b-neutral-50: #8791a0;
+  --b-neutral-45: #959eac;
+  --b-neutral-40: #a3abb8;
+  --b-neutral-35: #b1b8c3;
+  --b-neutral-30: #bec4ce;
+  --b-neutral-25: #ccd1d9;
+  --b-neutral-20: #d9dde3;
+  --b-neutral-15: #e3e6eb;
+  --b-neutral-10: #eceef2;
+  --b-neutral-5: #f4f5f7;
+  --b-neutral-2: #f9fafb;
+  --b-neutral-1: #fcfcfd;
+  --b-neutral-0: #ffffff;
+  --b-popup-background: #1a1e25;
+  --b-tooltip-rich-background: #1c2128;
+  --b-tooltip-plain-background: #1c2128;
+}
+
+.pl-gantt .b-gantt,
+.pl-gantt.b-gantt,
+.pl-gantt .b-grid-base {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  --b-grid-background: var(--surface);
+  --b-grid-header-background: var(--surface);
+  --b-grid-header-color: var(--text-3);
+  --b-grid-header-font-weight: 600;
+  --b-grid-cell-color: var(--text);
+  --b-grid-cell-border-color: var(--border);
+  --b-grid-header-border-color: var(--border);
+  --b-grid-row-hover-background: var(--surface-2);
+  --b-time-axis-header-background: var(--surface);
+  --b-gantt-task-border-radius: 5px;
+  --b-task-baseline-background: var(--border-strong);
+  --b-dependency-color: var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.pl-gantt .b-grid-header-container,
+.pl-gantt .b-grid-header {
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.pl-gantt .b-sch-header-time-axis-cell {
+  font-size: 11px;
+  color: var(--text-3);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.pl-gantt .pl-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+  color: var(--text-2);
+}
+
+.pl-gantt .pl-name--project {
+  font-weight: 620;
+}
+
+.pl-gantt .pl-name--pay {
+  color: var(--text-2);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.pl-gantt .pl-actions .b-icon,
+.pl-gantt .pl-actions .b-action-item {
+  color: var(--accent-text);
+  cursor: pointer;
+}
+
+/* Bars */
+.pl-gantt .b-gantt-task {
+  border-radius: 5px;
+}
+
+.pl-gantt .pl-work .b-gantt-task,
+.pl-gantt .b-gantt-task.pl-work {
+  background: var(--bar-work);
+}
+
+.pl-gantt .b-gantt-task.pl-work--blocked {
+  background: repeating-linear-gradient(135deg, var(--bar-ghost) 0 6px, transparent 6px 10px);
+  border: 1px dashed var(--border-strong);
+}
+
+.pl-gantt .b-gantt-task.pl-work--scheduled {
+  background: var(--bar-work-soft);
+  border: 1px solid var(--accent-line);
+}
+
+.pl-gantt .b-gantt-task.pl-work--late {
+  background: var(--late);
+}
+
+.pl-gantt .b-gantt-task.pl-work--delivered {
+  background: var(--text-3);
+}
+
+.pl-gantt .b-gantt-task.pl-pay {
+  height: 40%;
+  top: 30%;
+  border-radius: 999px;
+  background: transparent;
+  border: 1.5px dashed var(--border-strong);
+}
+
+.pl-gantt .b-gantt-task.pl-pay--ready_to_invoice,
+.pl-gantt .b-gantt-task.pl-pay--awaiting {
+  border: 1.5px solid var(--accent);
+  background: var(--accent-soft);
+}
+
+.pl-gantt .b-gantt-task.pl-pay--overdue {
+  border: 1.5px solid var(--late);
+  background: var(--late);
+}
+
+.pl-gantt .b-gantt-task.pl-pay--paid {
+  border: 1.5px solid var(--paid);
+  background: var(--paid);
+}
+
+.pl-gantt .b-gantt-task.pl-draft {
+  opacity: 0.75;
+}
+
+.pl-gantt .b-gantt-task-parent .b-gantt-task,
+.pl-gantt .b-gantt-task.pl-project {
+  background: var(--text-3);
+  opacity: 0.55;
+}
+
+/* The moment a payment unlocks the next milestone. */
+.pl-gantt .b-gantt-task.pl-unlocked {
+  animation: pl-unlock 1.5s var(--ease-out) 3;
+}
+
+@keyframes pl-unlock {
+  0% {
+    box-shadow: 0 0 0 0 var(--paid);
+    filter: brightness(1.25);
+  }
+  70% {
+    box-shadow: 0 0 0 10px transparent;
+    filter: none;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+.pl-gantt .b-sch-label,
+.pl-gantt .b-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-3);
+}
+
+/* A plate behind each bar label, so dependency lines pass under the text instead of through it. */
+.pl-gantt .b-gantt-task-wrap .b-sch-label:not(:empty) {
+  background: var(--surface);
+  padding: 1px 5px;
+  border-radius: 4px;
+  line-height: 1.3;
+}
+
+/* Time ranges: the workspace's "today" and weekends. Today is neutral ink so it never reads as "late". */
+.pl-gantt .b-sch-time-range.pl-weekend {
+  background: var(--weekend);
+  opacity: 1;
+  border: 0;
+}
+
+.pl-gantt .b-sch-time-range.b-sch-line.pl-today {
+  --b-time-range-line-color: var(--text);
+  --b-time-ranges-line-color: var(--text);
+  border-inline-start: 1.5px solid var(--text);
+  background: transparent;
+  color: var(--text);
+  z-index: 3;
+}
+
+.pl-gantt .b-grid-header .b-sch-time-range.pl-today,
+.pl-gantt .b-time-ranges-header-canvas .pl-today {
+  background: var(--text);
+  color: var(--surface);
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  padding: 0 5px;
+}
+
+.pl-gantt .b-time-ranges-header-canvas .pl-weekend {
+  display: none;
+}
+
+/* Dependency lines: thin and quiet; a satisfied gate turns green, an open payment gate is dashed. */
+.pl-gantt .b-sch-dependency.pl-dep {
+  --b-dependency-color: var(--border-strong);
+  --b-dependency-stroke-width: 1.25;
+}
+
+.pl-gantt .b-sch-dependency.pl-dep--met {
+  --b-dependency-color: var(--paid);
+}
+
+.pl-gantt .b-sch-dependency.pl-dep--paid:not(.pl-dep--met):not(.b-click-area) {
+  --b-dependency-color: var(--text-3);
+  stroke-dasharray: 3 3;
+}
+
+.pl-gantt .b-sch-dependency-arrow {
+  fill: var(--border-strong);
+}
+
+/* The approved plan, drawn as a thin rule under any bar that has moved away from it. */
+.pl-gantt .b-task-baseline {
+  background: var(--text-3);
+  opacity: 0.55;
+  border-radius: 2px;
+  height: 3px;
+  min-height: 3px;
+  margin-top: 3px;
+}
+
+/* No scrollbars inside the chart chrome unless content really overflows. */
+.pl-gantt .b-grid-sub-grid-locked .b-virtual-scroller,
+.pl-gantt .b-virtual-scrollers .b-virtual-scroller.b-grid-locked {
+  visibility: hidden;
+}
+
+.pl-tip {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+}
+
+.pl-tip b {
+  font-size: 13px;
+}

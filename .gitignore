@@ -1,0 +1,12 @@
+node_modules/
+dist/
+data/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+
+# internal work log
+PROGRESS.md
+tsconfig.tsbuildinfo

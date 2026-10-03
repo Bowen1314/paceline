@@ -1,0 +1,136 @@
+/*
+ * Paceline design tokens.
+ *
+ * Palette: cool graphite neutrals, one ultramarine accent, and two semantic
+ * hues that carry meaning everywhere they appear — green means money arrived,
+ * amber means money is late. Nothing else is coloured.
+ *
+ * Type: Geist for UI, Geist Mono for anything that is a figure (amounts,
+ * dates, invoice numbers) so columns of numbers align and read as data.
+ * Scale: 11 / 12 / 13 / 14 / 16 / 20 / 28. Spacing: multiples of 4.
+ */
+:root {
+  --font-ui: 'Geist Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --fs-11: 0.6875rem;
+  --fs-12: 0.75rem;
+  --fs-13: 0.8125rem;
+  --fs-14: 0.875rem;
+  --fs-16: 1rem;
+  --fs-20: 1.25rem;
+  --fs-28: 1.75rem;
+
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-8: 32px;
+  --s-10: 40px;
+
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-pill: 999px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-1: 120ms;
+  --dur-2: 220ms;
+  --dur-3: 420ms;
+
+  --topbar-h: 56px;
+  --footer-h: 34px;
+  --agent-w: 372px;
+}
+
+:root,
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f4f5f8;
+  --surface: #ffffff;
+  --surface-2: #f7f8fa;
+  --surface-3: #eef0f4;
+  --border: #e2e5eb;
+  --border-strong: #cdd2db;
+  --text: #11141a;
+  --text-2: #4b5462;
+  --text-3: #7b8493;
+  --text-inv: #ffffff;
+
+  --accent: #2f4be0;
+  --accent-hover: #2740c8;
+  --accent-soft: #eaeeff;
+  --accent-line: #c5cefb;
+  --accent-text: #2a43cf;
+
+  --paid: #0f7a56;
+  --paid-soft: #e3f5ee;
+  --paid-line: #a9dfc9;
+  --late: #b4530b;
+  --late-soft: #fdf0e1;
+  --late-line: #f2cfa3;
+  --danger: #b93227;
+  --danger-soft: #fdecea;
+
+  --bar-work: #2f4be0;
+  --bar-work-soft: #d9dfff;
+  --bar-ghost: #dfe3ea;
+  --weekend: #f0f2f5;
+
+  --shadow-1: 0 1px 0 rgba(17, 20, 26, 0.03), 0 1px 2px rgba(17, 20, 26, 0.05);
+  --shadow-2: 0 8px 24px -6px rgba(17, 20, 26, 0.16), 0 2px 6px rgba(17, 20, 26, 0.06);
+  --shadow-3: 0 24px 60px -12px rgba(17, 20, 26, 0.3), 0 4px 12px rgba(17, 20, 26, 0.08);
+  --scrim: rgba(17, 20, 26, 0.38);
+  --focus: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0c0e12;
+  --surface: #14171c;
+  --surface-2: #191d24;
+  --surface-3: #20252d;
+  --border: #252a33;
+  --border-strong: #353c48;
+  --text: #e9ecf1;
+  --text-2: #a6aebb;
+  --text-3: #727c8b;
+  --text-inv: #0c0e12;
+
+  --accent: #7d8fff;
+  --accent-hover: #93a2ff;
+  --accent-soft: #1c2244;
+  --accent-line: #333f80;
+  --accent-text: #9dabff;
+
+  --paid: #45d19d;
+  --paid-soft: #10291f;
+  --paid-line: #1f5440;
+  --late: #f0a64e;
+  --late-soft: #2e2110;
+  --late-line: #614219;
+  --danger: #f2796d;
+  --danger-soft: #331715;
+
+  --bar-work: #7d8fff;
+  --bar-work-soft: #2a3266;
+  --bar-ghost: #2a303a;
+  --weekend: #111419;
+
+  --shadow-1: 0 1px 0 rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-2: 0 10px 28px -6px rgba(0, 0, 0, 0.6), 0 2px 6px rgba(0, 0, 0, 0.4);
+  --shadow-3: 0 28px 70px -12px rgba(0, 0, 0, 0.75), 0 4px 12px rgba(0, 0, 0, 0.5);
+  --scrim: rgba(0, 0, 0, 0.6);
+}
+
+/* Before the script has set data-theme, follow the system so there is no white flash in dark mode. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --bg: #0c0e12;
+    --surface: #14171c;
+    --text: #e9ecf1;
+  }
+}

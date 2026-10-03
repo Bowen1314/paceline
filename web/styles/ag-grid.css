@@ -1,0 +1,100 @@
+/* AG Grid details the Theming API does not cover. Colours are Paceline tokens only. */
+.pl-grid .ag-header-cell-text {
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.pl-grid .ag-cell {
+  display: flex;
+  align-items: center;
+}
+
+.pl-grid .ag-right-aligned-cell {
+  justify-content: flex-end;
+}
+
+.pl-grid .ag-cell.mono,
+.pl-grid .mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 12.5px;
+  letter-spacing: -0.01em;
+}
+
+.pl-grid .pl-dim {
+  color: var(--text-3);
+  font-size: 12px;
+}
+
+.pl-grid .pl-row--planned .ag-cell {
+  color: var(--text-3);
+}
+
+.pl-grid .pl-row--overdue {
+  box-shadow: inset 2px 0 0 var(--late);
+}
+
+.pl-grid .pl-row--flash {
+  animation: pl-row-flash 2.4s var(--ease-out);
+}
+
+@keyframes pl-row-flash {
+  0%,
+  25% {
+    background-color: var(--paid-soft);
+    box-shadow: inset 2px 0 0 var(--paid);
+  }
+}
+
+.pl-grid .pl-due {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.pl-grid .pl-due small {
+  font-size: 11px;
+  color: var(--text-3);
+}
+
+.pl-grid .pl-due [data-late='1'] {
+  color: var(--late);
+  font-weight: 600;
+}
+
+.pl-grid .pl-row-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pl-grid .ag-row-group,
+.pl-grid .ag-row-level-0.ag-row-group {
+  font-weight: 600;
+  background: var(--surface-2);
+}
+
+.pl-grid .ag-row-pinned,
+.pl-grid .ag-row-footer {
+  font-weight: 620;
+  background: var(--surface-2);
+}
+
+.pl-grid .ag-value-change-value-highlight,
+.pl-grid .ag-cell-data-changed {
+  background-color: var(--paid-soft) !important;
+}
+
+.pl-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--text-3);
+}
+
+.pl-overlay b {
+  color: var(--text-2);
+  font-weight: 600;
+}
