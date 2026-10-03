@@ -10,7 +10,7 @@ Built for freelancers and small studios who bill by milestone. Entry for the Pay
 
 ![Live PayPal sandbox: a verified INVOICING.INVOICE.PAID webhook unblocks the next milestone and the ledger row flips to paid](docs/screenshots/18-live-sandbox-webhook-paid-unlocks-next-1440.jpg)
 
-**Demo video:** [`docs/demo.mp4`](docs/demo.mp4) (2 min 20 s, 1440x900, captions burned in; a 22-second excerpt is
+**Demo video:** [YouTube](https://youtu.be/F0bdV90CLgk), also in the repo as [`docs/demo.mp4`](docs/demo.mp4) (2 min 20 s, 1440x900, captions burned in; a 22-second excerpt is
 [`docs/demo.gif`](docs/demo.gif)). It is a real take against the live PayPal sandbox: Nemotron plan, approval gate,
 invoice sent through PayPal, the verified `INVOICING.INVOICE.PAID` webhook, the plan re-scheduling itself, then the
 ledger and the overdue/reminder flow in the simulator. The payment in the recording is made with
