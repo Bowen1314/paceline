@@ -8,7 +8,7 @@ everything downstream, shows the knock-on effect on the delivery date and drafts
 
 Built for freelancers and small studios who bill by milestone. Entry for the PayPal AI Hackathon.
 
-![Live PayPal sandbox: a verified INVOICING.INVOICE.PAID webhook unblocks the next milestone and the ledger row flips to paid](docs/screenshots/hd/18-live-webhook-paid-unlocks-next.jpg)
+![Live PayPal sandbox: a verified INVOICING.INVOICE.PAID webhook unblocks the next milestone and the ledger row flips to paid](docs/screenshots/18-live-webhook-paid-unlocks-next.jpg)
 
 **Demo video:** [YouTube](https://youtu.be/FNGF74nf5R4) (2880x1800, narrated by a synthetic voice), also in the repo as
 [`docs/demo.mp4`](docs/demo.mp4) (2 min 48 s, 1440x900, captions burned in; a 23-second excerpt is [`docs/demo.gif`](docs/demo.gif)). It is a real take against the live PayPal sandbox: Nemotron plan, approval gate,
@@ -511,7 +511,7 @@ redacts the sandbox buyer's e-mail in every frame, pays the invoice with `record
 to the simulator at the end. `LIVE=1 REQUIRE_MODEL=1 node scripts/record_demo.mjs` for the real thing; without
 `LIVE` it runs against `APP_URL` (a local dev server on 8793 by default, the simulator). Frames are captured at
 2880x1800 (1440x900 at 2x): `docs/demo-hd.mp4` is the full-resolution master for YouTube (not in git),
-`docs/demo.mp4` the 1440x900 repo copy, and stills of the key states go to `docs/screenshots/hd/`. The voice-over
+`docs/demo.mp4` the 1440x900 repo copy, and stills of the key states go to `docs/screenshots/`. The voice-over
 is generated from [`docs/narration.md`](docs/narration.md) with edge-tts (`EDGE_TTS=<path to the CLI>`), and the
 cursor is drawn in post at 30 fps from the recorded pointer path. The manual steps below are what the script
 automates, with a real buyer payment in place of step 6.
@@ -589,31 +589,31 @@ forms in a real browser. See [Screenshots](#screenshots).
 
 ## Screenshots
 
-In [`docs/screenshots/`](docs/screenshots/). 01 to 14 are from simulator mode; 15 to 18 are the live
-sandbox run on the public URL (2026-10-02; the sandbox buyer's email is masked):
+In [`docs/screenshots/`](docs/screenshots/), one file per screen, all at device scale factor 2: 1440x900 views are
+2880x1800, 1280x800 views 2560x1600, and the 768 px layouts 1536 px wide. 01 to 14 and 17 are from simulator mode
+(13 with `?mock=1`, no backend); 15, 16 and 18 are the live sandbox take of the demo recording (the sandbox buyer's
+email is masked). 06, 07, 15, 16 and 18 are stills from that recording, caption bar included; the others were shot
+on a local server with a headless browser.
 
 | | |
 | --- | --- |
-| `01-empty-state-light-1440` | first run: sample briefs and the sample workspace |
-| `02-plan-review-light-1440` | the proposed plan in the review editor |
-| `03-approval-gate-light-1440` | plan approved, first invoice waiting for approval with the exact PayPal calls |
-| `04-invoice-sent-light-1440` | invoice sent, ledger row awaiting payment |
-| `05-payment-unlocks-next-milestone-light-1440` | the demo moment: payment received, next milestone unblocked, delivery 7 days sooner |
-| `06-overdue-reschedule-and-reminder-light-1440` | overdue invoice, downstream rescheduled (+4 d), reminder draft |
-| `07-ledger-group-by-client-light-1440` | "group by client" in the ledger |
-| `08-overdue-dark-1440`, `09-overdue-dark-1280`, `10-overdue-light-1280` | themes and widths |
+| `01-empty-state-light` | first run: sample briefs and the sample workspace |
+| `02-plan-review-light` | the proposed plan in the review editor |
+| `03-approval-gate-light` | plan approved, first invoice waiting for approval with the exact PayPal calls |
+| `04-invoice-sent-light` | invoice sent, ledger row awaiting payment |
+| `05-payment-unlocks-next-milestone-light` | the demo moment: payment received, next milestone unblocked, delivery 7 days sooner |
+| `06-overdue-reschedule-and-reminder` | overdue invoice, downstream rescheduled (+4 d), reminder draft |
+| `07-ledger-group-by-client` | "group by client" in the ledger |
+| `08-overdue-dark`, `09-overdue-dark-1280`, `10-overdue-light-1280` | themes and widths |
 | `11-tablet-768-agent`, `12-tablet-768-plan-and-ledger` | 768 px layout |
-| `13-mock-mode-after-payment-light-1440` | `?mock=1`, no backend |
+| `13-mock-mode-after-payment-light` | `?mock=1`, no backend |
 | `14-payment-unlock-dark-1280` | payment unlock in dark |
-| `15-live-sandbox-plan-review-nemotron-1440` | live: the plan Nemotron proposed for the brand-refresh brief |
-| `16-live-sandbox-invoice-approval-1440` | live: the deposit invoice waiting for approval, with the exact PayPal calls |
-| `17-live-sandbox-invoice-sent-1440` | live: `create_invoice` + `send_invoice` done, real sandbox invoice awaiting payment |
-| `18-live-sandbox-webhook-paid-unlocks-next-1440` | live: verified `INVOICING.INVOICE.PAID` webhook, deposit paid, next milestone unlocked, delivery 7 days sooner |
+| `15-live-plan-review` | live: the plan Nemotron proposed for the brand-refresh brief |
+| `16-live-invoice-approval` | live: the deposit invoice waiting for approval, with the exact PayPal calls |
+| `17-simulator-invoice-sent` | the step between 16 and 18, shot in the simulator: `create_invoice` + `send_invoice` done, invoice awaiting payment |
+| `18-live-webhook-paid-unlocks-next` | live: verified `INVOICING.INVOICE.PAID` webhook, deposit paid, next milestone unlocked, delivery 7 days sooner |
 
-[`docs/screenshots/hd/`](docs/screenshots/hd/) holds 2880x1800 stills from the demo recording (caption bar
-included, buyer email masked): `15-live-plan-review`, `16-live-invoice-approval`,
-`18-live-webhook-paid-unlocks-next`, `06-overdue-reschedule-and-reminder`, `07-ledger-group-by-client`, and
-`thumb-3x2` (the 18 still padded to 3:2).
+[`docs/thumb-3x2.jpg`](docs/thumb-3x2.jpg) is the 18 still padded to 3:2.
 
 ## Credits and licence
 

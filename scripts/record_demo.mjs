@@ -1,7 +1,7 @@
 // Record the demo video: drives a throwaway headless Chrome (temporary profile) over the DevTools protocol,
 // injects captions and a redaction layer, captures screencast frames at full device resolution (2880x1800), and
 // builds docs/demo-hd.mp4 (2880x1800 with voice-over, for YouTube; not in git), docs/demo.mp4 (1440x900) and
-// docs/demo.gif with ffmpeg. Full-resolution stills of the key states go to docs/screenshots/hd/.
+// docs/demo.gif with ffmpeg. Full-resolution stills of the key states go to docs/screenshots/.
 //
 //   Dry run against a local simulator (no keys, nothing leaves the machine except the TTS text):
 //     APP_URL=http://127.0.0.1:8793 OUT_DIR=/some/scratch node scripts/record_demo.mjs
@@ -44,7 +44,7 @@ const W = 1440, H = 900, BAR = 60; // the caption bar takes the bottom 60 px of 
 const DPR = 2, CW = W * DPR, CH = H * DPR; // captured frames and stills are 2880x1800
 const PUBLIC = "https://paceline.gotclass.xyz";
 if (LIVE && APP !== PUBLIC) throw new Error("LIVE=1 only runs against " + PUBLIC);
-const HD_SHOTS = process.env.HD_SHOTS_DIR || join(OUT, "screenshots", "hd");
+const HD_SHOTS = process.env.HD_SHOTS_DIR || join(OUT, "screenshots");
 // Stills kept at full resolution (2880x1800, caption bar included): recorder shot name -> file in HD_SHOTS.
 const HD_NAMES = {
   "a2-plan-review.jpg": "15-live-plan-review.jpg",
@@ -800,7 +800,7 @@ function assemble() {
   // Devpost thumbnail (3:2): the webhook-unlock still, padded with white above the header to 2880x1920.
   const s18 = join(HD_SHOTS, HD_NAMES["a5-webhook-unlock.jpg"]);
   if (existsSync(s18)) {
-    execFileSync("nice", [...FF, "-i", s18, "-vf", `pad=${CW}:${CW * 2 / 3}:0:${CW * 2 / 3 - CH}:white`, "-q:v", "3", join(HD_SHOTS, "thumb-3x2.jpg")]);
+    execFileSync("nice", [...FF, "-i", s18, "-vf", `pad=${CW}:${CW * 2 / 3}:0:${CW * 2 / 3 - CH}:white`, "-q:v", "3", join(OUT, "thumb-3x2.jpg")]);
   }
   const where = Object.entries(marks).map(([k, i]) => `${k} ${(at[i] ?? t).toFixed(1)}s`).join(", ");
   log(`frames ${frames.length}, video ${t.toFixed(1)} s ->`, hd, mp4, gif);
