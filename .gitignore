@@ -6,6 +6,8 @@ data/
 !.env.example
 *.log
 .DS_Store
+# 2880x1800 demo master for YouTube (large); docs/demo.mp4 is the repo copy
+docs/demo-hd*.mp4
 
 # internal work log
 PROGRESS.md

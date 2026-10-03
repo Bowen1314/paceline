@@ -8,10 +8,10 @@ everything downstream, shows the knock-on effect on the delivery date and drafts
 
 Built for freelancers and small studios who bill by milestone. Entry for the PayPal AI Hackathon.
 
-![Live PayPal sandbox: a verified INVOICING.INVOICE.PAID webhook unblocks the next milestone and the ledger row flips to paid](docs/screenshots/18-live-sandbox-webhook-paid-unlocks-next-1440.jpg)
+![Live PayPal sandbox: a verified INVOICING.INVOICE.PAID webhook unblocks the next milestone and the ledger row flips to paid](docs/screenshots/hd/18-live-webhook-paid-unlocks-next.jpg)
 
-**Demo video:** [YouTube](https://youtu.be/F0bdV90CLgk), also in the repo as [`docs/demo.mp4`](docs/demo.mp4) (2 min 20 s, 1440x900, captions burned in; a 22-second excerpt is
-[`docs/demo.gif`](docs/demo.gif)). It is a real take against the live PayPal sandbox: Nemotron plan, approval gate,
+**Demo video:** [YouTube](https://youtu.be/FNGF74nf5R4) (2880x1800, narrated by a synthetic voice), also in the repo as
+[`docs/demo.mp4`](docs/demo.mp4) (2 min 48 s, 1440x900, captions burned in; a 23-second excerpt is [`docs/demo.gif`](docs/demo.gif)). It is a real take against the live PayPal sandbox: Nemotron plan, approval gate,
 invoice sent through PayPal, the verified `INVOICING.INVOICE.PAID` webhook, the plan re-scheduling itself, then the
 ledger and the overdue/reminder flow in the simulator. The payment in the recording is made with
 `record-payment` (see [Recording the demo](#recording-the-demo)), not by a buyer logging in, and the video says so.
@@ -509,8 +509,12 @@ Run any of them as `npx tsx --env-file=.env scripts/try-sandbox.ts <command>`.
 It pairs the live sandbox from the terminal (the operator token never reaches the browser, the page or the video),
 redacts the sandbox buyer's e-mail in every frame, pays the invoice with `record-payment`, and returns the browser
 to the simulator at the end. `LIVE=1 REQUIRE_MODEL=1 node scripts/record_demo.mjs` for the real thing; without
-`LIVE` it runs against `APP_URL` (a local dev server on 8793 by default, the simulator). The manual steps below are what the script automates,
-with a real buyer payment in place of step 6.
+`LIVE` it runs against `APP_URL` (a local dev server on 8793 by default, the simulator). Frames are captured at
+2880x1800 (1440x900 at 2x): `docs/demo-hd.mp4` is the full-resolution master for YouTube (not in git),
+`docs/demo.mp4` the 1440x900 repo copy, and stills of the key states go to `docs/screenshots/hd/`. The voice-over
+is generated from [`docs/narration.md`](docs/narration.md) with edge-tts (`EDGE_TTS=<path to the CLI>`), and the
+cursor is drawn in post at 30 fps from the recorded pointer path. The manual steps below are what the script
+automates, with a real buyer payment in place of step 6.
 
 The real "pay as buyer" click happens on sandbox.paypal.com, logged in as the sandbox Personal account. Only
 the owner does this (Paceline never holds the buyer's password).
@@ -605,6 +609,11 @@ sandbox run on the public URL (2026-10-02; the sandbox buyer's email is masked):
 | `16-live-sandbox-invoice-approval-1440` | live: the deposit invoice waiting for approval, with the exact PayPal calls |
 | `17-live-sandbox-invoice-sent-1440` | live: `create_invoice` + `send_invoice` done, real sandbox invoice awaiting payment |
 | `18-live-sandbox-webhook-paid-unlocks-next-1440` | live: verified `INVOICING.INVOICE.PAID` webhook, deposit paid, next milestone unlocked, delivery 7 days sooner |
+
+[`docs/screenshots/hd/`](docs/screenshots/hd/) holds 2880x1800 stills from the demo recording (caption bar
+included, buyer email masked): `15-live-plan-review`, `16-live-invoice-approval`,
+`18-live-webhook-paid-unlocks-next`, `06-overdue-reschedule-and-reminder`, `07-ledger-group-by-client`, and
+`thumb-3x2` (the 18 still padded to 3:2).
 
 ## Credits and licence
 
